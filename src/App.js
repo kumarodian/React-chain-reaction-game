@@ -8,9 +8,9 @@ import "./App.css";
 import "./css/style.css";
 import "./css/styleBlue.css";
 import "./css/styleGreen.css";
-import Dashboard from "./Component/Dashboard";
-import Board from "./Component/Board";
-import LeaderBoard from "./Component/LeaderBoard";
+import Dashboard from "./Containers/Dashboard";
+import Board from "./Containers/Board";
+import LeaderBoard from "./Containers/LeaderBoard";
 
 function App() {
   return (
