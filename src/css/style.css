@@ -1,10 +1,33 @@
+html,
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
 main {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   user-select: none;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.header > a {
+  padding: 1em;
+  font-size: 18px;
+}
+
+.content {
+  display: flex;
+  flex: 1;
   justify-content: center;
+  align-items: center;
 }
 
 #help {
@@ -479,6 +502,17 @@ div#teamName input {
   margin-right: 20px;
 }
 
+#teamName .timerCheckbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#teamName .timerCheckbox > input,
+label {
+  margin: 0;
+}
+
 #startGameBtn button {
   width: 79%;
   margin-left: 60px;
@@ -615,7 +649,7 @@ div#teamName input {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
