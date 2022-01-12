@@ -15,12 +15,12 @@ const WORD_ROW_CLASSNAME = [
   "fifthWord",
   "sixthWord",
 ];
+const AVAILABLE_ROW = [0, 1, 0, 0, 1, 0];
 
 const Board = () => {
   const index = Math.floor(Math.random() * WORD_LIST.length);
-
   const [wordList, setWordList] = useState(WORD_LIST[index]);
-
+  const [availableRow, setAvailableRow] = useState(AVAILABLE_ROW);
   console.log(wordList);
 
   const chainWords = {
@@ -30,21 +30,6 @@ const Board = () => {
     3: { word: "", len: "" },
     4: { word: "", len: "" },
     5: { word: "", len: "" },
-  };
-
-  const FillFirstLastRow = () => {
-    // setSixthWord(wordSplit(list[0][5]));
-    //let firstRowAlphabet = wordSplit(list[0][0]);
-    //let sixthRowAlphabet = wordSplit(list[0][5]);
-    let tmp = [];
-    for (let i = 0; i < MAX_WORD_LENGTH; i++) {
-      /* tmp.push(
-        firstRowAlphabet[i] ? `<td>${firstRowAlphabet[i]}</td>` : `<td></td>`
-      ); */
-      tmp.push(<td>S</td>);
-    }
-    console.log(tmp);
-    //console.log(firstWord);
   };
 
   function generateRandomLetter() {
@@ -60,8 +45,10 @@ const Board = () => {
           <tbody>
             {wordList.map((word, index) => (
               <GameRow
-                className={WORD_ROW_CLASSNAME[index]}
-                index={index}
+                className={`${WORD_ROW_CLASSNAME[index]} ${
+                  index > 0 && index < 5 ? "unsolved" : ""
+                } ${availableRow[index] ? "availableRow" : ""}`.trim()}
+                trindex={index}
                 word={word}
               />
             ))}

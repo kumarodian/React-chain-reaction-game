@@ -1,9 +1,5 @@
-const TableCell = ({ className, onClick, value }) => {
-  return (
-    <td className={className} onClick={onClick}>
-      {value}
-    </td>
-  );
+const TableCell = ({ className, value }) => {
+  return <td className={className}>{value}</td>;
 };
 
 export default TableCell;
