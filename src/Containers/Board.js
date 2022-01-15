@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GameRow from "../Components/GameRow";
+import ScoreBoard from "../Components/ScoreBoard";
 const MAX_WORD_LENGTH = 9;
 const WORD_LIST = [
   ["Credit", "Check", "Please", "Hold", "Fast", "Food"],
@@ -17,7 +18,7 @@ const WORD_ROW_CLASSNAME = [
 ];
 const AVAILABLE_ROW = [0, 1, 0, 0, 1, 0];
 
-const Board = () => {
+const Board = (props) => {
   const index = Math.floor(Math.random() * WORD_LIST.length);
   const [wordList, setWordList] = useState(WORD_LIST[index]);
   const [availableRow, setAvailableRow] = useState(AVAILABLE_ROW);
@@ -39,7 +40,9 @@ const Board = () => {
 
   return (
     <div className="row mainDisplay">
-      <div className="col-md-3 col-lg-3 scoreBoard"></div>
+      <div className="col-md-3 col-lg-3 scoreBoard">
+        <ScoreBoard team={props.team} />
+      </div>
       <div className="col-md-12 col-lg-12 displayBox">
         <table id="GameOn">
           <tbody>
@@ -49,6 +52,7 @@ const Board = () => {
                   index > 0 && index < 5 ? "unsolved" : ""
                 } ${availableRow[index] ? "availableRow" : ""}`.trim()}
                 trindex={index}
+                isRowAvailable={availableRow[index]}
                 word={word}
               />
             ))}

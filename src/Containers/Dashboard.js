@@ -1,30 +1,10 @@
 import React, { useState } from "react";
-const team = [
-  {
-    id: "1",
-    unicode: "🐦",
-    name: "Kookubura",
-  },
-  {
-    id: "2",
-    unicode: "🐉",
-    name: "Balerion",
-  },
-  {
-    id: "3",
-    unicode: "🐋",
-    name: "Orca",
-  },
-  {
-    id: "4",
-    unicode: "🐈",
-    name: "Life of Pie",
-  },
-];
-const initialName = () => {
-  return team.map((item) => item.name);
-};
+
 const Dashboard = (props) => {
+  const team = props.team;
+  const initialName = () => {
+    return team.map((item) => item.name);
+  };
   const [teamPlaying, setTeamPlaying] = useState(1);
   const [teamName, setTeamName] = useState(initialName);
   const [timerCheck, setTimerCheck] = useState(false);
